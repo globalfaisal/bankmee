@@ -1,0 +1,16 @@
+/* Color palette */
+$primary: hsl(136, 65%, 51%);
+$secondary: hsl(233, 26%, 24%);
+
+$cyan: hsl(192, 70%, 51%);
+$gray-dark: hsl(233, 8%, 35%);
+$gray-base: hsl(233, 5%, 55%);
+$gray-light: hsl(220, 16%, 96%);
+$gray-lighter: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+/* breakpoints */
+$bp-sm: 620; // small tablet
+$bp-md: 768; // large tablets to small laptops
+$bp-lg: 1280; // large laptops to small desktops
+$bp-xl: 1440; // large desktop

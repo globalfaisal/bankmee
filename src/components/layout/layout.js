@@ -1,11 +1,16 @@
 import React from 'react'
 
+import Header from '../header/header'
+
+import '../../assets/styles/index.scss'
 import './layout.scss'
 
-export const Layout = ({ children }) => (
+const Layout = ({ children }) => (
   <div className="layout-wrapper">
-    {/* TODO: Add feader component */}
+    <Header />
     <main>{children}</main>
     {/* TODO: Add footer component */}
   </div>
 )
+
+export default Layout
