@@ -15,9 +15,11 @@
   },
   "dependencies": {
     "gatsby": "^2.23.3",
+    "gatsby-plugin-portal": "^1.0.7",
     "gatsby-plugin-sass": "^2.3.4",
     "gatsby-plugin-typography": "^2.5.4",
     "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-responsive": "^8.1.0",

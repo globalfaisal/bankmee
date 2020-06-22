@@ -7,5 +7,12 @@ module.exports = {
         pathToConfigModule: `${__dirname}/src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-plugin-portal`,
+      options: {
+        key: 'portal',
+        id: 'portal',
+      },
+    },
   ],
 }
