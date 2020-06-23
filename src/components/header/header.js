@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
 
 import MainNav from '../main-nav/main-nav'
-
 import logoImgUrl from '../../assets/images/logo.svg'
 import styles from './header.module.scss'
 
-const Header = () => {
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
-  const isMobileOrTablet = useMediaQuery({ maxDeviceWidth: 768 })
+import Overlay from '../overlay/overlay'
 
-  console.log(isMobileOrTablet && isMobileNavOpen)
+const Header = ({ mainMenuItems }) => {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
+  const isMobileOrTablet = useMediaQuery({ query: '(max-width: 768px)' })
+
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.logo}>
@@ -28,7 +28,12 @@ const Header = () => {
           Menu
         </div>
       )}
-      <MainNav showMobileNav={isMobileOrTablet && isMobileNavOpen} />
+
+      <MainNav
+        showMobileNav={isMobileOrTablet && isMobileNavOpen}
+        mainMenuItems={mainMenuItems}
+      />
+      {isMobileOrTablet && isMobileNavOpen && <Overlay />}
     </header>
   )
 }

@@ -1,63 +1,41 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 
 import styles from './main-nav.module.scss'
 
-const MainNav = ({ showMobileNav = false }) => (
-  <nav
-    className={`${styles.mainNav} ${
-      showMobileNav ? styles.mobileMenuShown : styles.mobileMenuHidden
-    }`}
-  >
-    <ul className={styles.navList}>
-      <li className={styles.navItem}>
-        <Link
-          to="/"
-          className={styles.navLink}
-          activeClassName={styles.activeNavLink}
-        >
-          Home
-        </Link>
-      </li>
-      <li className={styles.navItem}>
-        <Link
-          to="/about"
-          className={styles.navLink}
-          activeClassName={styles.activeNavLink}
-        >
-          About
-        </Link>
-      </li>
-      <li className={styles.navItem}>
-        <Link
-          to="/contact"
-          className={styles.navLink}
-          activeClassName={styles.activeNavLink}
-        >
-          Contact
-        </Link>
-      </li>
-      <li className={styles.navItem}>
-        <Link
-          to="/blog"
-          className={styles.navLink}
-          activeClassName={styles.activeNavLink}
-          partiallyActive
-        >
-          Blog
-        </Link>
-      </li>
-      <li className={styles.navItem}>
-        <Link
-          to="/careers"
-          className={styles.navLink}
-          activeClassName={styles.activeNavLink}
-        >
-          Careers
-        </Link>
-      </li>
-    </ul>
-  </nav>
-)
+const MainNav = ({ mainMenuItems, showMobileNav = false }) => {
+  if (!mainMenuItems) return null
+
+  return (
+    <nav
+      className={`${styles.mainNav} ${
+        showMobileNav ? styles.mobileMenuShown : styles.mobileMenuHidden
+      }`}
+    >
+      <ul className={styles.navList}>
+        {mainMenuItems
+          .filter(item => item.url !== '/')
+          .map(item => (
+            <>
+              <li className={styles.navItem}>
+                <Link
+                  to={item.url}
+                  className={styles.navLink}
+                  activeClassName={styles.activeNavLink}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            </>
+          ))}
+      </ul>
+    </nav>
+  )
+}
+MainNav.propTypes = {
+  mainMenuItems: PropTypes.array.isRequired,
+  showMobileNav: PropTypes.bool,
+}
 
 export default MainNav
