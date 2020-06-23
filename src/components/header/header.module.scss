@@ -6,6 +6,7 @@
   height: 50px;
   padding: 0 1em;
   background-color: $white;
+  box-shadow: 0px 1px 6px 0px $gray-light;
 }
 
 .logo {
@@ -24,11 +25,4 @@
   margin-left: 0.25em;
   letter-spacing: -2px;
   color: $secondary;
-}
-
-.nav-menu-toggler {
-  margin-left: auto;
-  display: flex;
-  align-self: center;
-  z-index: 10;
 }
