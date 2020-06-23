@@ -14,5 +14,13 @@ module.exports = {
         id: 'portal',
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'WPGraphQL',
+        fieldName: 'wpgraphql',
+        url: process.env.WP_GRAPHQL_URL,
+      },
+    },
   ],
 }
